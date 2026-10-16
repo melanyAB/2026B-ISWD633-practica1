@@ -17,21 +17,25 @@ docker run -d --name <nombre contenedor> --mount type=bind,source=<ruta carpeta 
 ### Crear un contenedor con la imagen nginx:alpine, mapear todos por puertos, para la ruta carpeta host colocar el directorio en donde se encuentra la carpeta html en tu computador y para la ruta carpeta contenedor: /usr/share/nginx/html (esta ruta se obtiene al revisar la documentación de la imagen)
 ![Volúmenes](volumen-host.PNG)
 # COMPLETAR CON EL COMANDO
-
+```
+docker run -d --name svr1 -p 8080:80 -v C:\Users\P3E010-D\Documents\nginx\html:/usr/share/nginx/html nginx:alpine
+```
 ### ¿Qué sucede al ingresar al servidor de nginx?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+Al ingresar a http://localhost:8080, el servidor nginx muestra el error 403 Forbidden, lo que significa que el servidor recibió la solicitud, pero no permite acceder al contenido solicitado.
 
 ### ¿Qué pasa con el archivo index.html del contenedor?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+El archivo index.html del contenedor queda reemplazado visualmente por el contenido de la carpeta html de la computadora, la carpeta del host está vacía, no contiene un archivo index.html el nginx muestra el error 403 Forbidden.
 
 ### Ir a https://html5up.net/ y descargar un template gratuito, descomprirlo dentro de tu computador en la carpeta html
 ### ¿Qué sucede al ingresar al servidor de nginx?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+Al ingresar al servidor Nginx mediante el navegador, utilizando la dirección http://localhost:3000, se muestra la página web correspondiente a la plantilla descargada de HTML5 UP.
 
 ### Eliminar el contenedor
-# COMPLETAR CON EL COMANDO
+```
+docker rm -f svr1
+```
 
 ### ¿Qué sucede al crear nuevamente un contenedor montado al directorio definidos anteriormente?
-# COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+Al crear nuevamente el contenedor Docker a página web de la plantilla vuelve a estar disponible en nginx.
 
 
